@@ -7,7 +7,11 @@ const BUILD_DIRECTORY = 'dist';
 const PRODUCTION = process.env.NODE_ENV === 'production';
 
 // Config entrypoint files
-const ENTRY_POINTS = ['src/index.ts'];
+const ENTRY_POINTS = [
+  'src/routes/homepage/index.ts',
+  'src/routes/club/index.ts',
+  'src/routes/athletes/index.ts',
+];
 
 // Config dev serving
 const LIVE_RELOAD = !PRODUCTION;
@@ -26,6 +30,8 @@ const context = await esbuild.context({
   define: {
     SERVE_ORIGIN: JSON.stringify(SERVE_ORIGIN),
   },
+  // splitting: true,
+  // format: 'esm',
 });
 
 // Build files in prod
