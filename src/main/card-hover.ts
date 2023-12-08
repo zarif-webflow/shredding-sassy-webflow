@@ -6,6 +6,8 @@ const cards = [...document.querySelectorAll('.card-3d-viewport')] as HtmlEl[];
 cards.forEach((card) => {
   const cardImg = card.querySelector('.card-3d-image-contain') as HtmlElWithNull;
 
+  gsap.set([card, cardImg], { willChange: 'transform' });
+
   const rotateXTo = gsap.quickTo(card, 'rotationX', {
     duration: 0.5,
     ease: 'power4',
